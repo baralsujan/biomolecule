@@ -1,0 +1,15 @@
+{% extends 'registration/base.html' %}
+
+{% block title %}Submission{% endblock %}
+
+{% block content %}
+  <h2>Submit Sequence</h2>
+    <form action="/api/v1/dnas/submit-sequence/" method="post">
+    {% csrf_token %}
+    <label for="your_name">Sequence: </label>
+    <input id="sequence" type="text" name="sequence">
+        <input type="hidden" name="user_id", value="{{ user.id }}">
+    <input type="submit" value="Submit">
+
+    </form>
+{% endblock %}
